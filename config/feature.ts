@@ -223,4 +223,4 @@ export const ALL_FEATURES: FeaturesCollection = {
   FEATURES_AR,
   FEATURES_ES,
   FEATURES_RU
-}
+};

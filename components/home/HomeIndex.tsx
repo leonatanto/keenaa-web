@@ -1,42 +1,49 @@
-import CTA from "@/components/home/CTA";
-import FAQ from "@/components/home/FAQ";
-import Feature from "@/components/home/Feature";
+import Benefits from "@/components/home/Benefits";
+import CatalogPreview from "@/components/home/CatalogPreview";
+import Guide from "@/components/home/Guide";
 import Hero from "@/components/home/Hero";
-import Pricing from "@/components/home/Pricing";
-import ScrollingLogos from "@/components/home/ScrollingLogos";
-import SocialProof from "@/components/home/SocialProof";
-import Testimonials from "@/components/home/Testimonials";
-import { defaultLocale, getDictionary } from "@/lib/i18n";
+import Reviews from "@/components/home/Reviews";
+import { getDictionary } from "@/lib/i18n";
 
-export default async function HomeIndex({ lang }: { lang: string }) {
-  const langName = lang || defaultLocale;
-  const dict = await getDictionary(langName);
+const HomeIndex = async ({ lang }: { lang: string }) => {
+  const dict = await getDictionary(lang);
 
   return (
-    <>
+    <main className="min-h-screen w-full">
       {/* Hero Section */}
-      <Hero locale={dict.Hero} langName={langName} CTALocale={dict.CTAButton} />
-      <SocialProof locale={dict.SocialProof} />
-      {/* display technology stack, partners, project honors, etc. */}
-      <ScrollingLogos />
+      <div className="w-full">
+        <Hero locale={dict.Hero} langName={lang} CTALocale={dict.CTAButton} />
+      </div>
 
-      {/* Showcase */}
-      {/* <Showcase id="Showcase" locale={dict.Showcase} /> */}
+      {/* Main Content */}
+      <div className="mt-16">
+        {/* New Arrivals Section */}
+        <div id="Products" className="mb-24">
+          <CatalogPreview />
+        </div>
 
-      {/* USP (Unique Selling Proposition) */}
-      <Feature id="Features" locale={dict.Feature} langName={langName} />
+        {/* Benefits Section */}
+        <div id="Benefits" className="mb-24">
+          <Benefits />
+        </div>
 
-      {/* Pricing */}
-      <Pricing id="Pricing" locale={dict.Pricing} langName={langName} />
+        {/* Guide Section */}
+        <div id="Guide" className="mb-24">
+          <Guide />
+        </div>
 
-      {/* Testimonials */}
-      <Testimonials id="Testimonials" locale={dict.Testimonials} />
+        {/* Reviews Section */}
+        <div id="Reviews" className="mb-24">
+          <Reviews locale={dict.Testimonials} id="Reviews" />
+        </div>
 
-      {/* FAQ (Frequently Asked Questions) */}
-      <FAQ id="FAQ" locale={dict.FAQ} langName={langName} />
-
-      {/* CTA (Call to Action) */}
-      <CTA locale={dict.CTA} CTALocale={dict.CTAButton} />
-    </>
+        {/* CTA Section */}
+        {/* <div className="mb-16">
+          <CTA locale={dict.CTA} CTALocale={dict.CTAButton} />
+        </div> */}
+      </div>
+    </main>
   );
-}
+};
+
+export default HomeIndex;
