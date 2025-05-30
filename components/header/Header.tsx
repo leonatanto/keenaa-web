@@ -62,7 +62,7 @@ const Header = () => {
   const isHome = pathname === `/${lang}` || pathname === "/";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm py-5">
       <nav className="relative z-50 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Left section */}
         <div className="flex items-center md:gap-x-12 flex-1">
@@ -70,32 +70,32 @@ const Header = () => {
             <a
               href="#top"
               onClick={(e) => handleScroll(e, "#top")}
-              className="flex items-center space-x-2 font-bold"
+              className="flex items-center space-x-3"
             >
               <Image
                 alt="Logo"
                 src="/baby-icon.png"
-                className="w-10 h-10"
-                width={40}
-                height={40}
+                className="w-8 h-8"
+                width={32}
+                height={32}
               />
-              <span className="text-gray-950 dark:text-gray-300 hidden md:block text-xl">
+              <span className="text-gray-900 dark:text-gray-100 hidden md:block text-base font-medium tracking-normal">
                 {siteConfig.name}
               </span>
             </a>
           ) : (
             <Link
               href={`/${lang}`}
-              className="flex items-center space-x-2 font-bold"
+              className="flex items-center space-x-3"
             >
               <Image
                 alt="Logo"
                 src="/baby-icon.png"
-                className="w-10 h-10"
-                width={40}
-                height={40}
+                className="w-8 h-8"
+                width={32}
+                height={32}
               />
-              <span className="text-gray-950 dark:text-gray-300 hidden md:block text-xl">
+              <span className="text-gray-900 dark:text-gray-100 hidden md:block text-base font-medium tracking-normal">
                 {siteConfig.name}
               </span>
             </Link>
@@ -103,41 +103,44 @@ const Header = () => {
         </div>
 
         {/* Center section - Navigation */}
-        <ul className="hidden md:flex items-center justify-center gap-8 flex-1">
+        <ul className="hidden md:flex items-center justify-center gap-12 flex-1">
           {mounted && scrollLinks.map((link) => (
-            <li key={link.label}>
+            <li key={link.label} className="relative group">
               {isHome ? (
                 <a
                   href={link.href}
                   onClick={(e) => handleScroll(e, link.href)}
-                  className="tracking-wide transition-colors duration-200 font-medium hover:text-primary"
+                  className="text-[13px] tracking-normal font-medium text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white transition-colors duration-200"
                 >
                   {link.label}
+                  <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-black dark:bg-white origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                 </a>
               ) : (
                 <Link
                   href={`/${lang}#${link.href.replace("#", "")}`}
-                  className="tracking-wide transition-colors duration-200 font-medium hover:text-primary"
+                  className="text-[13px] tracking-normal font-medium text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white transition-colors duration-200"
                 >
                   {link.label}
+                  <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-black dark:bg-white origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                 </Link>
               )}
             </li>
           ))}
           {mounted && navLinks.map((link) => (
-            <li key={link.label}>
+            <li key={link.label} className="relative group">
               <Link
                 href={`/${lang}/${link.href}`}
-                className="tracking-wide transition-colors duration-200 font-medium hover:text-primary"
+                className="text-[13px] tracking-normal font-medium text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white transition-colors duration-200"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-black dark:bg-white origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
               </Link>
             </li>
           ))}
         </ul>
 
         {/* Right section */}
-        <div className="hidden md:flex items-center justify-end gap-x-6 flex-1">
+        <div className="hidden md:flex items-center justify-end gap-x-8 flex-1">
           <HeaderLinks />
           <ThemedButton />
           <LangSwitcher />
@@ -157,43 +160,46 @@ const Header = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && mounted && (
-          <div className="absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg rounded-b-lg">
-            <div className="px-4 py-6">
-              <ul className="space-y-4">
+          <div className="absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg">
+            <div className="px-6 py-8">
+              <ul className="space-y-6">
                 {scrollLinks.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.label} className="relative group">
                     {isHome ? (
                       <a
                         href={link.href}
                         onClick={(e) => handleScroll(e, link.href)}
-                        className="block text-lg font-medium hover:text-primary"
+                        className="block text-[13px] tracking-normal font-medium text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white"
                       >
                         {link.label}
+                        <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-black dark:bg-white origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                       </a>
                     ) : (
                       <Link
                         href={`/${lang}#${link.href.replace("#", "")}`}
-                        className="block text-lg font-medium hover:text-primary"
+                        className="block text-[13px] tracking-normal font-medium text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {link.label}
+                        <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-black dark:bg-white origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                       </Link>
                     )}
                   </li>
                 ))}
                 {navLinks.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.label} className="relative group">
                     <Link
                       href={`/${lang}/${link.href}`}
-                      className="block text-lg font-medium hover:text-primary"
+                      className="block text-[13px] tracking-normal font-medium text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
+                      <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-black dark:bg-white origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex items-center gap-4">
+              <div className="mt-8 flex items-center gap-6">
                 <HeaderLinks />
                 <ThemedButton />
                 <LangSwitcher />
