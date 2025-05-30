@@ -2,38 +2,37 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-
 const reviews = [
   {
     id: 1,
     name: "Sarah Johnson",
     role: "Mother of 2",
-    image: "/reviews/review1.webp",
-    content: "This carrier has been a game-changer for me. The ergonomic design really helps with back support, and my baby loves being close to me.",
+    image: "/images.jpg",
+    content: "This carrier has truly changed my daily routine. The back support is amazing, and my baby feels so happy and secure being close to me.",
     rating: 5
   },
   {
     id: 2,
     name: "Michael Chen",
     role: "First-time Dad",
-    image: "/reviews/review2.webp",
-    content: "As a new dad, I was nervous about baby carriers, but this one is so intuitive to use. The adjustable straps make it perfect for both me and my wife.",
+    image: "/images.jpg",
+    content: "I was new to babywearing, but this carrier made it easy. The fit is perfect for both me and my wife, and our baby loves it too.",
     rating: 5
   },
   {
     id: 3,
     name: "Emily Rodriguez",
     role: "Mom & Pediatrician",
-    image: "/reviews/review3.webp",
-    content: "From a medical perspective, I appreciate how this carrier supports proper hip development. It's what I recommend to all my patients.",
+    image: "/images.jpg",
+    content: "As a pediatrician, I value how this carrier supports healthy hip development. I confidently recommend it to other parents.",
     rating: 5
   },
   {
     id: 4,
     name: "David Thompson",
     role: "Active Parent",
-    image: "/reviews/review4.webp",
-    content: "We love hiking with our little one, and this carrier makes it possible. The storage pockets and sun shade are really well thought out.",
+    image: "/images.jpg",
+    content: "We love exploring outdoors with our baby. The thoughtful features like storage pockets and sun shade make every adventure easier.",
     rating: 5
   }
 ];
@@ -169,8 +168,8 @@ export default function Reviews({ id, locale }: ReviewsProps) {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${activeIndex === index
-                    ? "bg-primary w-4"
-                    : "bg-gray-300 dark:bg-gray-700"
+                  ? "bg-primary w-4"
+                  : "bg-gray-300 dark:bg-gray-700"
                   }`}
                 aria-label={`Go to review ${index + 1}`}
               />

@@ -4,24 +4,24 @@ import Image from "next/image";
 
 const steps = [
   {
-    title: "Choose Your Carrier",
-    description: "Select the perfect carrier based on your baby's age, size, and your lifestyle needs.",
-    image: "/guide/step1.webp"
+    title: "1. Pick Your Favorite Color",
+    description: "Select the color that matches your style and mood.",
+    image: "/desc1.webp"
   },
   {
-    title: "Adjust for Comfort",
-    description: "Ensure proper fit by adjusting straps and buckles for both parent and baby comfort.",
-    image: "/guide/step2.webp"
+    title: "2. Adjust for a Custom Fit",
+    description: "Easily fine-tune the straps and buckles to ensure both you and your baby feel secure and comfortable.",
+    image: "/desc2.webp"
   },
   {
-    title: "Position Baby Safely",
-    description: "Follow our positioning guidelines to ensure your baby is secure and properly supported.",
-    image: "/guide/step3.webp"
+    title: "3. Position with Care",
+    description: "Follow our simple guidelines to keep your baby safe, supported, and close to your heart.",
+    image: "/desc3.webp"
   },
   {
-    title: "Enjoy the Journey",
-    description: "Bond with your baby while keeping your hands free for daily activities.",
-    image: "/guide/step4.webp"
+    title: "4. Cherish Every Moment",
+    description: "Stay hands-free and connected—enjoy every adventure together, big or small.",
+    image: "/desc4.jpg"
   }
 ];
 
@@ -40,7 +40,7 @@ const Guide = () => {
             How to Use Our Carriers
           </motion.h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Follow these simple steps to ensure a safe and comfortable babywearing experience.
+            Enjoy safe, comfortable babywearing in just a few easy steps.
           </p>
         </div>
 

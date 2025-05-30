@@ -4,21 +4,21 @@ interface SlideData {
   description: string;
 }
 
-export const getSlides = (locale: any): SlideData[] => [
+export const getSlides = (): SlideData[] => [
   {
     image: "/hero-1.jpg",
-    title: "Everywhere",
-    description: "lorem ipsum dolor sit amet",
+    title: "Effortless Carry, Always Fashionable",
+    description: "Carry your little one with confidence, wherever you go. Our baby carrier blends modern style and ergonomic comfort, so you and your baby always feel at ease.",
   },
   {
     image: "/hero-2.jpeg",
-    title: "Stylish",
-    description: "lorem ipsum dolor sit amet",
+    title: "Designed for You & Your Baby",
+    description: "Experience freedom and closeness. Our carriers support healthy development and let you stay stylish on every adventure—big or small.",
   },
   {
     image: "/hero-3.jpg",
-    title: "Comfortable",
-    description: "lorem ipsum dolor sit amet",
+    title: "Wherever You Go, Stay Stylish & Comfortable",
+    description: "From city strolls to family trips, our carriers are your perfect companion. Move with ease, bond with love.",
   },
 ];
 

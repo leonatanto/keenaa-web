@@ -1,6 +1,4 @@
 "use client";
-import { LineText } from "@/components/LineText";
-import CTAButton from "@/components/home/CTAButton";
 import { getSlides } from "@/config/slider";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -52,10 +50,9 @@ const Hero = ({
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            {slides[currentSlide].title1}{" "}
-            <LineText>{slides[currentSlide].title2}</LineText>{" "}
-            {slides[currentSlide].title3}
+          <h1 className="text-white text-4xl sm:text-3xl lg:text-4xl font-bold mb-6">
+            {slides[currentSlide].title}{" "}
+            {slides[currentSlide].description}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl sm:text-2xl tracking-tight text-white">
             {locale.description}
@@ -79,11 +76,12 @@ const Hero = ({
       </div>
 
       {/* CTA Button */}
-      <div className="absolute bottom-6 left-0 right-0">
+      {/* TODO action to shop later */}
+      {/* <div className="absolute bottom-6 left-0 right-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CTAButton locale={CTALocale} />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

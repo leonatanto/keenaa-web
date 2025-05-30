@@ -4,24 +4,24 @@ import Image from "next/image";
 
 const benefits = [
   {
-    title: "Ergonomic Design",
-    description: "Scientifically designed to support proper hip and spine development for your baby while ensuring parent comfort.",
-    icon: "/icons/ergonomic.svg"
+    title: "Ergonomic Support",
+    description: "Thoughtfully engineered to nurture healthy hip and spine development, while keeping you comfortable on every journey.",
+    icon: "/desc1.webp"
   },
   {
-    title: "Multiple Positions",
-    description: "Adaptable carrying positions to suit your baby's age and preferences, from newborn to toddler.",
-    icon: "/icons/positions.svg"
+    title: "Versatile Carrying Options",
+    description: "Easily switch between multiple positions to match your baby’s needs—from cozy newborn snuggles to curious toddler adventures.",
+    icon: "/desc2.webp"
   },
   {
-    title: "Premium Materials",
-    description: "Made with high-quality, breathable fabrics that are gentle on baby's skin and durable for daily use.",
-    icon: "/icons/materials.svg"
+    title: "*Premium, Gentle Materials",
+    description: "Made from soft, breathable fabrics that are kind to your baby’s skin and built to last through every moment.",
+    icon: "/desc3.webp"
   },
   {
-    title: "Safety First",
-    description: "Rigorously tested to meet and exceed all safety standards, giving you peace of mind.",
-    icon: "/icons/safety.svg"
+    title: "Safety You Can Trust",
+    description: "Tested and certified for peace of mind, so you can focus on making memories together.",
+    icon: "/desc4.jpg"
   }
 ];
 
@@ -40,7 +40,7 @@ const Benefits = () => {
             Why Choose Our Carriers?
           </motion.h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Designed with both parent and baby in mind, our carriers provide the perfect blend of comfort, safety, and style.
+            Discover the perfect balance of comfort, safety, and style—crafted for both you and your little one.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ const Benefits = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="w-16 h-16 mx-auto mb-4 relative">
+              <div className="w-32 h-32 mx-auto mb-4 relative">
                 <Image
                   src={benefit.icon}
                   alt={benefit.title}
