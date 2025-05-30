@@ -25,7 +25,14 @@ export default function CatalogPage({
 
   useEffect(() => {
     setMounted(true);
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  // Also scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   // Get unique categories
   const categories = useMemo(() => {
