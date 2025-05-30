@@ -12,8 +12,8 @@ export default function LoadingOverlay() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
     >
-      <div className="text-center">
-        <div className="scale-150">
+      <div className="text-center px-4">
+        <div className="scale-150 sm:scale-150">
           <LoadingDots />
         </div>
         <LoadingMessage />

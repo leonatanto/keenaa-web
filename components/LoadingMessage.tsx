@@ -26,7 +26,7 @@ export default function LoadingMessage() {
   }, []);
 
   return (
-    <div className="mt-4 text-gray-600 dark:text-gray-300 text-lg font-light animate-fade-in">
+    <div className="mt-4 text-gray-600 dark:text-gray-300 text-base sm:text-lg font-light animate-fade-in px-6">
       {message}
     </div>
   );
