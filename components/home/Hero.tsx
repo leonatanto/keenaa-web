@@ -1,5 +1,6 @@
 "use client";
 import { getSlides } from "@/config/slider";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -38,34 +39,53 @@ const Hero = ({ locale, langName, CTALocale }: HeroProps) => {
       lang={langName}
       className="relative h-screen w-full overflow-hidden"
     >
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? "opacity-100" : "opacity-0"
-            }`}
-        >
-          <Image
-            src={slide.image}
-            alt={`Hero Slide ${index + 1}`}
-            fill
-            className="object-cover"
-            priority={index === 0}
-            sizes="100vw"
-            quality={90}
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-      ))}
+      <AnimatePresence mode="wait">
+        {slides.map((slide, index) => (
+          currentSlide === index && (
+            <motion.div
+              key={index}
+              className="absolute inset-0"
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <Image
+                src={slide.image}
+                alt={`Hero Slide ${index + 1}`}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                sizes="100vw"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
+            </motion.div>
+          )
+        ))}
+      </AnimatePresence>
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-white text-4xl sm:text-3xl lg:text-4xl font-bold mb-6">
+          <motion.h1
+            key={currentSlide}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+          >
             {slides[currentSlide].title}
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-xl sm:text-2xl tracking-tight text-white">
+          </motion.h1>
+          <motion.p
+            key={`desc-${currentSlide}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mx-auto mt-6 max-w-2xl text-xl sm:text-2xl tracking-tight text-white/90"
+          >
             {slides[currentSlide].description}
-          </p>
+          </motion.p>
         </div>
       </div>
 
@@ -75,9 +95,9 @@ const Hero = ({ locale, langName, CTALocale }: HeroProps) => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === index
-              ? "bg-white w-8"
-              : "bg-white/50 hover:bg-white/70"
+            className={`h-2.5 rounded-full transition-all duration-500 ${currentSlide === index
+                ? "w-8 bg-white"
+                : "w-2.5 bg-white/50 hover:bg-white/70"
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />
