@@ -51,12 +51,12 @@ const FAQ = ({
       >
         {FAQS?.map((item) => (
           <AccordionItem
-            key={item.title}
+            key={item.question}
             indicator={<PlusIcon />}
-            title={item.title}
+            title={item.question}
             HeadingComponent="h3"
           >
-            {item.content}
+            {item.answer}
           </AccordionItem>
         ))}
       </Accordion>
