@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { LoadingDots } from "./icons";
+import LoadingMessage from "./LoadingMessage";
 
 export default function LoadingOverlay() {
   return (
@@ -11,21 +13,10 @@ export default function LoadingOverlay() {
       transition={{ duration: 0.7, ease: "easeInOut" }}
     >
       <div className="text-center">
-        {/* Simple loading animation */}
-        <motion.div
-          className="w-16 h-16 mb-8 relative mx-auto"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <div className="absolute inset-0 rounded-full border-t-2 border-primary animate-spin" />
-        </motion.div>
+        <div className="scale-150">
+          <LoadingDots />
+        </div>
+        <LoadingMessage />
       </div>
     </motion.div>
   );

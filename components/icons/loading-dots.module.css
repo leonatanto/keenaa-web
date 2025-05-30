@@ -1,40 +1,40 @@
 .loading {
   display: inline-flex;
   align-items: center;
-}
-
-.loading .spacer {
-  margin-right: 2px;
+  gap: 4px;
 }
 
 .loading span {
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   display: inline-block;
-  margin: 0 1px;
+  animation: moveBubble 1.4s infinite ease-in-out;
 }
 
-.loading span:nth-of-type(2) {
+.dot1 {
+  background-color: #3b82f6; /* Primary blue */
+  animation-delay: 0s;
+}
+
+.dot2 {
+  background-color: #ec4899; /* Pink for baby theme */
   animation-delay: 0.2s;
 }
 
-.loading span:nth-of-type(3) {
+.dot3 {
+  background-color: #8b5cf6; /* Purple - modern touch */
   animation-delay: 0.4s;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 0.2;
+@keyframes moveBubble {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
   }
-  20% {
+  50% {
+    transform: translateY(-10px);
     opacity: 1;
-  }
-  100% {
-    opacity: 0.2;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
   }
 }
