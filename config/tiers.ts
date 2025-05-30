@@ -1,43 +1,112 @@
-
 import { siteConfig } from "@/config/site";
 import { Tier, TiersEnum } from "@/types/pricing";
 
-export const TIERS_EN: Array<Tier> = [
+export const TIERS_EN = [
   {
-    key: TiersEnum.Free,
-    title: "Open-Source / Free",
-    price: "Free",
-    href: siteConfig.openSourceURL || "#",
-    description:
-      "Freely clone the landing page boilerplate from the GitHub repository.",
+    name: "Free",
+    id: "tier-free",
+    href: "#",
+    price: { monthly: "$0" },
+    description: "Get started with the basics",
     features: [
-      "Free",
-      "Access to full code",
-      "Secondary development",
-      "MIT License",
+      "Access to all basic templates",
+      "Community support",
+      "Basic customization options",
+      "Regular updates"
     ],
-    buttonText: "Get started",
-    buttonColor: "primary",
-    buttonVariant: "solid",
+    featured: false,
   },
   {
-    key: TiersEnum.Customize,
-    title: "Customize",
-    href: siteConfig.authors[0].twitter || "#",
-    description: "Pay to customize an exclusive landing page.",
-    price: "$188",
+    name: "Pro",
+    id: "tier-pro",
+    href: "#",
+    price: { monthly: "$15" },
+    description: "Perfect for professional developers",
     features: [
-      "Access to full code",
-      "Secondary development",
-      "Exclusive style",
-      "One-on-one service",
-      "More exquisite pages",
+      "Everything in Free",
+      "Premium templates",
+      "Priority support",
+      "Advanced customization",
+      "Custom branding",
+      "Analytics dashboard"
     ],
-    buttonText: "Contact us",
-    buttonColor: "default",
-    buttonVariant: "flat",
+    featured: true,
+  },
+  {
+    name: "Enterprise",
+    id: "tier-enterprise",
+    href: "#",
+    price: { monthly: "Custom" },
+    description: "For large scale deployments",
+    features: [
+      "Everything in Pro",
+      "Custom development",
+      "Dedicated support",
+      "SLA guarantees",
+      "Custom integrations",
+      "Training sessions"
+    ],
+    featured: false,
   },
 ];
+
+export const TIERS_ID = [
+  {
+    name: "Gratis",
+    id: "tier-free",
+    href: "#",
+    price: { monthly: "Rp0" },
+    description: "Mulai dengan fitur dasar",
+    features: [
+      "Akses ke semua template dasar",
+      "Dukungan komunitas",
+      "Opsi kustomisasi dasar",
+      "Update rutin"
+    ],
+    featured: false,
+  },
+  {
+    name: "Pro",
+    id: "tier-pro",
+    href: "#",
+    price: { monthly: "Rp225.000" },
+    description: "Sempurna untuk pengembang profesional",
+    features: [
+      "Semua fitur Gratis",
+      "Template premium",
+      "Dukungan prioritas",
+      "Kustomisasi lanjutan",
+      "Branding kustom",
+      "Dashboard analitik"
+    ],
+    featured: true,
+  },
+  {
+    name: "Enterprise",
+    id: "tier-enterprise",
+    href: "#",
+    price: { monthly: "Kustom" },
+    description: "Untuk deployment skala besar",
+    features: [
+      "Semua fitur Pro",
+      "Pengembangan kustom",
+      "Dukungan dedicated",
+      "Jaminan SLA",
+      "Integrasi kustom",
+      "Sesi pelatihan"
+    ],
+    featured: false,
+  },
+];
+
+export type TiersCollection = {
+  [key: string]: typeof TIERS_EN;
+};
+
+export const ALL_TIERS: TiersCollection = {
+  TIERS_EN,
+  TIERS_ID
+};
 
 export const TIERS_ZH: Array<Tier> = [
   {
@@ -220,16 +289,3 @@ export const TIERS_RU: Array<Tier> = [
     buttonVariant: "flat",
   },
 ];
-
-interface TiersCollection {
-  [key: `TIERS_${string}`]: Array<Tier>;
-}
-
-export const ALL_TIERS: TiersCollection = {
-  TIERS_EN,
-  TIERS_ZH,
-  TIERS_JA,
-  TIERS_AR,
-  TIERS_ES,
-  TIERS_RU
-}

@@ -3,15 +3,23 @@ import { getSlides } from "@/config/slider";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Hero = ({
-  locale,
-  langName,
-  CTALocale,
-}: {
-  locale: any;
+interface HeroProps {
+  locale?: {
+    title1?: string;
+    title2?: string;
+    title3?: string;
+    description?: string;
+    slides?: Array<{
+      image: string;
+      title: string;
+      description: string;
+    }>;
+  };
   langName: string;
-  CTALocale: any;
-}) => {
+  CTALocale?: any;
+}
+
+const Hero = ({ locale, langName, CTALocale }: HeroProps) => {
   const slides = getSlides(locale);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -22,6 +30,8 @@ const Hero = ({
 
     return () => clearInterval(timer);
   }, [slides.length]);
+
+  if (!locale) return null;
 
   return (
     <section

@@ -1,0 +1,157 @@
+{
+  "Hero": {
+    "title1": "Bangun",
+    "title2": "Landing Page",
+    "title3": "Cepat",
+    "description": "Template landing page gratis dan open-source yang kuat, ideal untuk berbagai proyek, memungkinkan Anda membuat landing page dalam waktu kurang dari satu jam.",
+    "slides": [
+      {
+        "image": "/hero-1.jpg",
+        "title": "Menggendong dengan Mudah, Selalu Modis",
+        "description": "Gendong si kecil dengan percaya diri, ke mana pun Anda pergi. Gendongan bayi kami memadukan gaya modern dan kenyamanan ergonomis, sehingga Anda dan bayi Anda selalu merasa nyaman."
+      },
+      {
+        "image": "/hero-2.jpeg",
+        "title": "Dirancang untuk Anda & Si Kecil",
+        "description": "Rasakan kebebasan dan kedekatan. Gendongan kami mendukung perkembangan yang sehat dan membuat Anda tetap stylish dalam setiap petualangan—besar maupun kecil."
+      },
+      {
+        "image": "/hero-3.jpg",
+        "title": "Di Mana Pun Anda Pergi, Tetap Stylish & Nyaman",
+        "description": "Dari jalan-jalan di kota hingga perjalanan keluarga, gendongan kami adalah teman sempurna Anda. Bergerak dengan mudah, menjalin ikatan dengan kasih."
+      }
+    ]
+  },
+  "SocialProof": {
+    "maker": "pembuat membangun dengan cepat"
+  },
+  "Showcase": {
+    "title": "Showcase",
+    "description": "Bergabung dengan 1000+ Pembuat yang Meningkatkan Konversi dengan Template Landing Page Kami"
+  },
+  "Feature": {
+    "title": "Fitur"
+  },
+  "Benefits": {
+    "title": "Mengapa Memilih Gendongan Kami?",
+    "subtitle": "Temukan keseimbangan sempurna antara kenyamanan, keamanan, dan gaya—dirancang untuk Anda dan si kecil.",
+    "items": [
+      {
+        "title": "Dukungan Ergonomis",
+        "description": "Direkayasa dengan cermat untuk mendukung perkembangan pinggul dan tulang belakang yang sehat, sambil menjaga kenyamanan Anda di setiap perjalanan.",
+        "icon": "/desc1.webp"
+      },
+      {
+        "title": "Opsi Menggendong yang Beragam",
+        "description": "Mudah beralih antara berbagai posisi untuk menyesuaikan kebutuhan bayi Anda—dari pelukan nyaman bayi baru lahir hingga petualangan balita yang penuh rasa ingin tahu.",
+        "icon": "/desc2.webp"
+      },
+      {
+        "title": "Bahan Premium dan Lembut",
+        "description": "Terbuat dari kain lembut dan bernapas yang ramah untuk kulit bayi Anda dan dirancang untuk tahan lama di setiap momen.",
+        "icon": "/desc3.webp"
+      },
+      {
+        "title": "Keamanan yang Dapat Dipercaya",
+        "description": "Telah diuji dan disertifikasi untuk ketenangan pikiran, sehingga Anda dapat fokus menciptakan kenangan bersama.",
+        "icon": "/desc4.jpg"
+      }
+    ]
+  },
+  "Guide": {
+    "title": "Cara Menggunakan Gendongan Kami",
+    "subtitle": "Nikmati menggendong bayi dengan aman dan nyaman hanya dalam beberapa langkah mudah.",
+    "viewGuide": "Lihat Panduan Keamanan Lengkap",
+    "steps": [
+      {
+        "title": "1. Pilih Warna Favorit Anda",
+        "description": "Pilih warna yang sesuai dengan gaya dan suasana hati Anda.",
+        "image": "/desc1.webp"
+      },
+      {
+        "title": "2. Sesuaikan untuk Kenyamanan",
+        "description": "Mudah menyesuaikan tali dan gesper untuk memastikan Anda dan bayi Anda merasa aman dan nyaman.",
+        "image": "/desc2.webp"
+      },
+      {
+        "title": "3. Posisikan dengan Hati-hati",
+        "description": "Ikuti panduan sederhana kami untuk menjaga bayi Anda tetap aman, terdukung, dan dekat dengan hati Anda.",
+        "image": "/desc3.webp"
+      },
+      {
+        "title": "4. Hargai Setiap Momen",
+        "description": "Tetap bebas bergerak dan terhubung—nikmati setiap petualangan bersama, besar maupun kecil.",
+        "image": "/desc4.jpg"
+      }
+    ]
+  },
+  "Pricing": {
+    "title": "Harga",
+    "title2": "Dapatkan akses tanpa batas.",
+    "description": "Halaman yang Anda lihat saat ini adalah template gratis dan open-source.",
+    "doYouLike": "Apakah Anda menyukai template landing page ini?",
+    "follow": "Ikuti Twitter saya."
+  },
+  "Testimonials": {
+    "title": "Testimoni",
+    "description1": "Jika Anda menggunakan template landing page ini dan merekomendasikannya di Twitter,",
+    "description2": "beritahu saya",
+    "description3": ". Saya akan menampilkan tweet dan rekomendasi Anda di sini."
+  },
+  "FAQ": {
+    "title": "FAQ",
+    "description": "Berikut adalah beberapa pertanyaan yang sering diajukan."
+  },
+  "CTA": {
+    "title": "Bangun Landing Page Anda Sekarang",
+    "description1": "Bangun",
+    "description2": "landing page Anda,",
+    "description3": "tampilkan",
+    "description4": "produk Anda, dan",
+    "description5": "mulai menghasilkan",
+    "description6": "!"
+  },
+  "CTAButton": {
+    "title": "Dapatkan Template"
+  },
+  "CatalogPreview": {
+    "title": "Produk Terbaru",
+    "viewAll": "Lihat Semua"
+  },
+  "Reviews": {
+    "title": "Apa Kata Para Orang Tua",
+    "subtitle": "Pengalaman nyata dari para orang tua yang menyukai gendongan kami.",
+    "reviews": [
+      {
+        "name": "Sarah Johnson",
+        "role": "Ibu dari 2 Anak",
+        "content": "Gendongan ini benar-benar mengubah rutinitas harian saya. Dukungan punggungnya luar biasa, dan bayi saya merasa sangat senang dan aman berada dekat dengan saya."
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Ayah Baru",
+        "content": "Saya baru mengenal gendongan bayi, tapi gendongan ini membuatnya mudah. Ukurannya sempurna untuk saya dan istri saya, dan bayi kami juga menyukainya."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "role": "Ibu & Dokter Anak",
+        "content": "Sebagai dokter anak, saya menghargai bagaimana gendongan ini mendukung perkembangan pinggul yang sehat. Saya dengan yakin merekomendasikannya kepada orang tua lain."
+      },
+      {
+        "name": "David Thompson",
+        "role": "Orang Tua Aktif",
+        "content": "Kami suka menjelajah di luar ruangan dengan bayi kami. Fitur-fitur yang dipikirkan dengan baik seperti kantong penyimpanan dan pelindung matahari membuat setiap petualangan lebih mudah."
+      }
+    ]
+  },
+  "Common": {
+    "language": "Bahasa"
+  },
+  "Navigation": {
+    "shop": "BELANJA",
+    "benefits": "MANFAAT",
+    "guide": "PANDUAN",
+    "reviews": "ULASAN",
+    "catalog": "KATALOG"
+  }
+}

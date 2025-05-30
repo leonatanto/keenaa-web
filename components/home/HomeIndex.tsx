@@ -24,17 +24,17 @@ const HomeIndex = async ({ lang }: { lang: string }) => {
 
         {/* Benefits Section */}
         <div id="Benefits" className="mb-24">
-          <Benefits />
+          <Benefits locale={dict.Benefits} />
         </div>
 
         {/* Guide Section */}
         <div id="Guide" className="mb-24">
-          <Guide />
+          <Guide locale={dict.Guide} />
         </div>
 
         {/* Reviews Section */}
         <div id="Reviews" className="mb-24">
-          <Reviews locale={dict.Testimonials} id="Reviews" />
+          <Reviews locale={dict.Reviews} id="Reviews" />
         </div>
 
         {/* CTA Section */}

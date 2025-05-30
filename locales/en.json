@@ -3,7 +3,24 @@
     "title1": "Ship",
     "title2": "Landing Page",
     "title3": "Fast",
-    "description": "A free, open-source, and powerful landing page boilerplate, ideal for various projects, enabling you to create a landing page in under an hour."
+    "description": "A free, open-source, and powerful landing page boilerplate, ideal for various projects, enabling you to create a landing page in under an hour.",
+    "slides": [
+      {
+        "image": "/hero-1.jpg",
+        "title": "Effortless Carry, Always Fashionable",
+        "description": "Carry your little one with confidence, wherever you go. Our baby carrier blends modern style and ergonomic comfort, so you and your baby always feel at ease."
+      },
+      {
+        "image": "/hero-2.jpeg",
+        "title": "Designed for You & Your Baby",
+        "description": "Experience freedom and closeness. Our carriers support healthy development and let you stay stylish on every adventure—big or small."
+      },
+      {
+        "image": "/hero-3.jpg",
+        "title": "Wherever You Go, Stay Stylish & Comfortable",
+        "description": "From city strolls to family trips, our carriers are your perfect companion. Move with ease, bond with love."
+      }
+    ]
   },
   "SocialProof": {
     "maker": "makers ship fast"
@@ -14,6 +31,59 @@
   },
   "Feature": {
     "title": "Features"
+  },
+  "Benefits": {
+    "title": "Why Choose Our Carriers?",
+    "subtitle": "Discover the perfect balance of comfort, safety, and style—crafted for both you and your little one.",
+    "items": [
+      {
+        "title": "Ergonomic Support",
+        "description": "Thoughtfully engineered to nurture healthy hip and spine development, while keeping you comfortable on every journey.",
+        "icon": "/desc1.webp"
+      },
+      {
+        "title": "Versatile Carrying Options",
+        "description": "Easily switch between multiple positions to match your baby's needs—from cozy newborn snuggles to curious toddler adventures.",
+        "icon": "/desc2.webp"
+      },
+      {
+        "title": "Premium, Gentle Materials",
+        "description": "Made from soft, breathable fabrics that are kind to your baby's skin and built to last through every moment.",
+        "icon": "/desc3.webp"
+      },
+      {
+        "title": "Safety You Can Trust",
+        "description": "Tested and certified for peace of mind, so you can focus on making memories together.",
+        "icon": "/desc4.jpg"
+      }
+    ]
+  },
+  "Guide": {
+    "title": "How to Use Our Carriers",
+    "subtitle": "Enjoy safe, comfortable babywearing in just a few easy steps.",
+    "viewGuide": "View Complete Safety Guide",
+    "steps": [
+      {
+        "title": "1. Pick Your Favorite Color",
+        "description": "Select the color that matches your style and mood.",
+        "image": "/desc1.webp"
+      },
+      {
+        "title": "2. Adjust for a Custom Fit",
+        "description": "Easily fine-tune the straps and buckles to ensure both you and your baby feel secure and comfortable.",
+        "image": "/desc2.webp"
+      },
+      {
+        "title": "3. Position with Care",
+        "description": "Follow our simple guidelines to keep your baby safe, supported, and close to your heart.",
+        "image": "/desc3.webp"
+      },
+      {
+        "title": "4. Cherish Every Moment",
+        "description": "Stay hands-free and connected—enjoy every adventure together, big or small.",
+        "image": "/desc4.jpg"
+      }
+    ]
   },
   "Pricing": {
     "title": "Pricing",
@@ -43,5 +113,45 @@
   },
   "CTAButton": {
     "title": "Get Boilerplate"
+  },
+  "CatalogPreview": {
+    "title": "New Arrivals",
+    "viewAll": "View All"
+  },
+  "Reviews": {
+    "title": "What Parents Say",
+    "subtitle": "Real experiences from parents who love our carriers.",
+    "reviews": [
+      {
+        "name": "Sarah Johnson",
+        "role": "Mother of 2",
+        "content": "This carrier has truly changed my daily routine. The back support is amazing, and my baby feels so happy and secure being close to me."
+      },
+      {
+        "name": "Michael Chen",
+        "role": "First-time Dad",
+        "content": "I was new to babywearing, but this carrier made it easy. The fit is perfect for both me and my wife, and our baby loves it too."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "role": "Mom & Pediatrician",
+        "content": "As a pediatrician, I value how this carrier supports healthy hip development. I confidently recommend it to other parents."
+      },
+      {
+        "name": "David Thompson",
+        "role": "Active Parent",
+        "content": "We love exploring outdoors with our baby. The thoughtful features like storage pockets and sun shade make every adventure easier."
+      }
+    ]
+  },
+  "Common": {
+    "language": "Language"
+  },
+  "Navigation": {
+    "shop": "SHOP",
+    "benefits": "BENEFITS",
+    "guide": "GUIDE",
+    "reviews": "REVIEWS",
+    "catalog": "CATALOG"
   }
 }

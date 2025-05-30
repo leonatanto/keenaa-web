@@ -2,6 +2,7 @@
 import HeaderLinks from "@/components/header/HeaderLinks";
 import { LangSwitcher } from "@/components/header/LangSwitcher";
 import { siteConfig } from "@/config/site";
+import { getDictionary } from "@/lib/i18n";
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,27 +11,55 @@ import { useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { ThemedButton } from "../ThemedButton";
 
-const scrollLinks = [
-  { label: "SHOP", href: "#Products" },
-  { label: "BENEFITS", href: "#Benefits" },
-  { label: "GUIDE", href: "#Guide" },
-  { label: "REVIEWS", href: "#Reviews" },
-];
-
-const navLinks = [
-  { label: "CATALOG", href: "catalog" },
-];
-
 const Header = () => {
   const params = useParams();
   const pathname = usePathname();
   const lang = (params?.lang as string) || "en";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [translations, setTranslations] = useState({
+    Navigation: {
+      shop: "SHOP",
+      benefits: "BENEFITS",
+      guide: "GUIDE",
+      reviews: "REVIEWS",
+      catalog: "CATALOG"
+    }
+  });
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    const loadTranslations = async () => {
+      try {
+        const dict = await getDictionary(lang);
+        if (dict.Navigation) {
+          setTranslations({
+            Navigation: {
+              shop: dict.Navigation.shop || "SHOP",
+              benefits: dict.Navigation.benefits || "BENEFITS",
+              guide: dict.Navigation.guide || "GUIDE",
+              reviews: dict.Navigation.reviews || "REVIEWS",
+              catalog: dict.Navigation.catalog || "CATALOG"
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error loading translations:', error);
+      }
+    };
+    loadTranslations();
+  }, [lang]);
+
+  const scrollLinks = [
+    { label: translations.Navigation.shop, href: "#Products" },
+    { label: translations.Navigation.benefits, href: "#Benefits" },
+    { label: translations.Navigation.guide, href: "#Guide" },
+    { label: translations.Navigation.reviews, href: "#Reviews" },
+  ];
+
+  const navLinks = [
+    { label: translations.Navigation.catalog, href: "catalog" },
+  ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();

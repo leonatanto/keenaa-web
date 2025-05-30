@@ -2,30 +2,21 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const benefits = [
-  {
-    title: "Ergonomic Support",
-    description: "Thoughtfully engineered to nurture healthy hip and spine development, while keeping you comfortable on every journey.",
-    icon: "/desc1.webp"
-  },
-  {
-    title: "Versatile Carrying Options",
-    description: "Easily switch between multiple positions to match your baby’s needs—from cozy newborn snuggles to curious toddler adventures.",
-    icon: "/desc2.webp"
-  },
-  {
-    title: "*Premium, Gentle Materials",
-    description: "Made from soft, breathable fabrics that are kind to your baby’s skin and built to last through every moment.",
-    icon: "/desc3.webp"
-  },
-  {
-    title: "Safety You Can Trust",
-    description: "Tested and certified for peace of mind, so you can focus on making memories together.",
-    icon: "/desc4.jpg"
-  }
-];
+interface BenefitsProps {
+  locale?: {
+    title: string;
+    subtitle: string;
+    items: Array<{
+      title: string;
+      description: string;
+      icon: string;
+    }>;
+  };
+}
 
-const Benefits = () => {
+const Benefits = ({ locale }: BenefitsProps) => {
+  if (!locale) return null;
+
   return (
     <section className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,15 +28,15 @@ const Benefits = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Why Choose Our Carriers?
+            {locale.title}
           </motion.h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Discover the perfect balance of comfort, safety, and style—crafted for both you and your little one.
+            {locale.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit, index) => (
+          {locale.items.map((benefit, index) => (
             <motion.div
               key={benefit.title}
               className="text-center p-6 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow"

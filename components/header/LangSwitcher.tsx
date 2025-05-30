@@ -6,16 +6,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { defaultLocale, getDictionary, localeNames } from "@/lib/i18n";
 import { useParams, usePathname, useRouter } from "next/navigation";
-
-import { defaultLocale, localeNames } from "@/lib/i18n";
+import { useEffect, useState } from "react";
 
 export const LangSwitcher = () => {
   const params = useParams();
   const pathname = usePathname();
   const router = useRouter();
+  const [translations, setTranslations] = useState({ language: "Language" });
 
   let langName = (params.lang as string) || defaultLocale;
+
+  useEffect(() => {
+    const loadTranslations = async () => {
+      const dict = await getDictionary(langName);
+      setTranslations(dict.Common || { language: "Language" });
+    };
+    loadTranslations();
+  }, [langName]);
 
   const handleSwitchLanguage = (value: string) => {
     const pathSegments = pathname
@@ -41,7 +50,7 @@ export const LangSwitcher = () => {
   return (
     <Select value={langName as string} onValueChange={handleSwitchLanguage}>
       <SelectTrigger className="w-fit">
-        <SelectValue placeholder="Language" />
+        <SelectValue placeholder={translations.language} />
       </SelectTrigger>
       <SelectContent>
         {Object.keys(localeNames).map((key: string) => {
