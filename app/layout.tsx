@@ -12,6 +12,7 @@ import "@/styles/globals.css";
 import "@/styles/loading.css";
 import { Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
+import ClientLayout from "./client-layout";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -34,7 +35,7 @@ export const viewport: Viewport = {
   themeColor: siteConfig.themeColors,
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params: { lang },
 }: {
@@ -50,19 +51,21 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Providers>
-            <Header />
-            <main className="flex flex-col items-center py-6">{children}</main>
-            <Footer />
-          </Providers>
-          <TailwindIndicator />
-        </ThemeProvider>
+        <ClientLayout>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Providers>
+              <Header />
+              <main className="flex flex-col items-center py-6">{children}</main>
+              <Footer />
+            </Providers>
+            <TailwindIndicator />
+          </ThemeProvider>
+        </ClientLayout>
         {process.env.NODE_ENV === "development" ? (
           <></>
         ) : (
