@@ -14,7 +14,7 @@ const ITEMS_PER_PAGE = 9;
 export default function CatalogPage({
   params: { lang },
 }: {
-  params: { lang: string };
+  params: { lang: 'en' | 'id' };
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
