@@ -1,6 +1,7 @@
 "use client";
 
-import { catalogItems } from "@/config/catalog";
+import { products } from "@/config/products";
+import { siteConfig } from "@/config/site";
 import { Button } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
@@ -14,15 +15,13 @@ interface Section {
   content: string | string[];
 }
 
-const SHOPEE_URL = "https://shopee.co.id/keenaa.id";
-
 export default function ProductDetail() {
   const params = useParams();
   const productId = params?.id as string;
   const lang = params?.lang as string;
 
-  const product = catalogItems.find((item) => item.id === productId);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const product = products.find((item) => item.id === productId);
+  const [expandedSection, setExpandedSection] = useState<string>("Details");
   const [selectedImage, setSelectedImage] = useState(0);
 
   if (!product) {
@@ -41,22 +40,29 @@ export default function ProductDetail() {
     );
   }
 
-  const productImages = product.images || [product.image];
-
   const sections: Section[] = [
     {
       title: "Details",
-      content: product.description || "No description available"
+      content: product.description[lang]
     },
     {
       title: "Features",
-      content: product.features || []
+      content: product.features[lang]
+    },
+    {
+      title: "Specifications",
+      content: [
+        `Age Range: ${product.ageRange}`,
+        `Maximum Weight: ${product.maxWeight}`,
+        `Material: ${product.material}`,
+        `Certification: ${product.certification}`
+      ]
     }
   ];
 
   const toggleSection = (title: string) => {
     if (expandedSection === title) {
-      setExpandedSection(null);
+      setExpandedSection("Details");
     } else {
       setExpandedSection(title);
     }
@@ -76,16 +82,16 @@ export default function ProductDetail() {
                   </Link>
                 </li>
                 <li>•</li>
-                <li>{product.category}</li>
+                <li>{product.category[lang]}</li>
               </ol>
             </nav>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
               {/* Product Images Section */}
-              <div className="space-y-6">
+              <div className="w-full">
                 {/* Main Image */}
                 <motion.div
-                  className="h-[600px] relative"
+                  className="h-[600px] relative w-full"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
@@ -102,8 +108,8 @@ export default function ProductDetail() {
                           className="w-full h-full"
                         >
                           <Image
-                            src={productImages[selectedImage]}
-                            alt={`${product.name} - Image ${selectedImage + 1}`}
+                            src={product.images[selectedImage]}
+                            alt={`${product.name[lang]} - Image ${selectedImage + 1}`}
                             fill
                             className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
                             sizes="(max-width: 768px) 100vw, 50vw"
@@ -116,9 +122,9 @@ export default function ProductDetail() {
                 </motion.div>
 
                 {/* Thumbnail Gallery */}
-                {productImages.length > 1 && (
-                  <div className="flex gap-3 justify-center">
-                    {productImages.map((img, index) => (
+                {product.images.length > 1 && (
+                  <div className="flex gap-3 justify-center mt-6">
+                    {product.images.map((img: string, index: number) => (
                       <motion.button
                         key={index}
                         onClick={() => setSelectedImage(index)}
@@ -133,7 +139,7 @@ export default function ProductDetail() {
                       >
                         <Image
                           src={img}
-                          alt={`${product.name} - Thumbnail ${index + 1}`}
+                          alt={`${product.name[lang]} - Thumbnail ${index + 1}`}
                           fill
                           className="object-contain"
                           sizes="64px"
@@ -146,29 +152,27 @@ export default function ProductDetail() {
 
               {/* Product Info */}
               <motion.div
-                className="lg:h-[600px] flex flex-col"
+                className="lg:h-[600px] flex flex-col w-[500px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 {/* Fixed header section */}
-                <div className="flex-none">
-                  <h1 className="text-4xl font-medium mb-4">{product.name}</h1>
-                  <p className="text-3xl font-light mb-4">${product.price}</p>
-                  {product.category && (
-                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-8">
-                      {product.category}
-                    </p>
-                  )}
+                <div className="flex-none w-full">
+                  <h1 className="text-4xl font-medium mb-4">{product.name[lang]}</h1>
+                  <p className="text-3xl font-light mb-4">Rp {product.price.toLocaleString()}</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-8">
+                    {product.category[lang]}
+                  </p>
                 </div>
 
-                {/* Scrollable content section */}
-                <div className="flex-1 overflow-y-auto scrollbar-hide">
-                  <div className="space-y-4">
+                {/* Content section */}
+                <div className="flex-grow">
+                  <div className="space-y-4 max-h-[400px] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
                     {sections.map((section) => (
                       <div
                         key={section.title}
-                        className="border-b border-gray-100 dark:border-gray-700 w-full"
+                        className="border-b border-gray-100 dark:border-gray-700 last:border-b-0"
                       >
                         <button
                           onClick={() => toggleSection(section.title)}
@@ -183,25 +187,25 @@ export default function ProductDetail() {
                             <ChevronDown className="w-5 h-5" />
                           </motion.span>
                         </button>
-                        <AnimatePresence>
+                        <AnimatePresence mode="wait">
                           {expandedSection === section.title && (
                             <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
+                              initial={{ height: 0 }}
+                              animate={{ height: "auto" }}
+                              exit={{ height: 0 }}
                               transition={{ duration: 0.3 }}
                               className="overflow-hidden"
                             >
-                              <div className="pb-6 text-sm w-full">
+                              <div className="pb-6">
                                 {Array.isArray(section.content) ? (
-                                  <ul className="space-y-3 text-gray-600 dark:text-gray-400 w-full">
+                                  <ul className="space-y-3">
                                     {section.content.map((item, index) => (
                                       <motion.li
                                         key={index}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="flex items-start w-full"
+                                        className="flex items-start text-sm text-gray-600 dark:text-gray-400"
                                       >
                                         <span className="mr-3 text-primary flex-none">•</span>
                                         <span className="flex-1 leading-relaxed">{item}</span>
@@ -209,7 +213,7 @@ export default function ProductDetail() {
                                     ))}
                                   </ul>
                                 ) : (
-                                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed w-full">
+                                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                     {section.content}
                                   </p>
                                 )}
@@ -226,8 +230,8 @@ export default function ProductDetail() {
                 {product.colors && product.colors.length > 0 && (
                   <div className="flex-none py-6 border-t border-gray-100 dark:border-gray-700">
                     <h3 className="text-sm font-medium mb-4">Available Colors</h3>
-                    <div className="flex gap-3">
-                      {product.colors.map((color) => (
+                    <div className="flex flex-wrap gap-3">
+                      {product.colors.map((color: string) => (
                         <span
                           key={color}
                           className="px-3 py-1 text-sm rounded-full bg-gray-100 dark:bg-gray-700"
@@ -240,10 +244,10 @@ export default function ProductDetail() {
                 )}
 
                 {/* Fixed footer section */}
-                <div className="flex-none pt-6 w-full">
+                <div className="flex-none pt-6">
                   <Button
                     as="a"
-                    href={SHOPEE_URL}
+                    href={siteConfig.headerLinks.find(link => link.name === 'shopee')?.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     color="primary"

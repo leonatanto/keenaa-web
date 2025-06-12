@@ -1,5 +1,5 @@
 "use client";
-import { catalogItems } from "@/config/catalog";
+import { products } from "@/config/products";
 import { getDictionary } from "@/lib/i18n";
 import { Button, Input, Pagination, Select, SelectItem } from "@nextui-org/react";
 import { motion } from "framer-motion";
@@ -56,28 +56,27 @@ export default function CatalogPage({
     };
     loadTranslations();
     setMounted(true);
-    // Scroll to top when component mounts
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [lang]);
 
-  // Also scroll to top when page changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   // Get unique categories
   const categories = useMemo(() => {
-    const uniqueCategories = new Set(catalogItems.map(item => item.category));
+    const uniqueCategories = new Set(products.map(item => item.category[lang]));
     return ["all", ...Array.from(uniqueCategories)];
-  }, []);
+  }, [lang]);
 
   // Filter and sort items
   const filteredItems = useMemo(() => {
-    return catalogItems
+    return products
       .filter(item => {
-        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.category.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = selectedCategory === "all" || item.category === selectedCategory;
+        const matchesSearch =
+          item.name[lang].toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.category[lang].toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategory === "all" || item.category[lang] === selectedCategory;
         return matchesSearch && matchesCategory;
       })
       .sort((a, b) => {
@@ -87,14 +86,14 @@ export default function CatalogPage({
           case "price-desc":
             return b.price - a.price;
           case "name-asc":
-            return a.name.localeCompare(b.name);
+            return a.name[lang].localeCompare(b.name[lang]);
           case "name-desc":
-            return b.name.localeCompare(a.name);
+            return b.name[lang].localeCompare(a.name[lang]);
           default:
             return 0;
         }
       });
-  }, [searchQuery, selectedCategory, sortBy]);
+  }, [searchQuery, selectedCategory, sortBy, lang]);
 
   const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -166,7 +165,7 @@ export default function CatalogPage({
           >
             {categories.map((category) => (
               <SelectItem key={category} value={category}>
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category === "all" ? translations.sortOptions.default : category}
               </SelectItem>
             ))}
           </Select>
@@ -214,8 +213,8 @@ export default function CatalogPage({
               >
                 <div className="aspect-[3/4] relative overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800">
                   <Image
-                    src={product.image}
-                    alt={product.name}
+                    src={product.thumbnail}
+                    alt={product.name[lang]}
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -228,14 +227,12 @@ export default function CatalogPage({
                   whileHover={{ opacity: 1 }}
                 >
                   <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors duration-300">
-                    {product.name}
+                    {product.name[lang]}
                   </h3>
                   <div className="mt-2 flex justify-between items-center">
-                    {product.category && (
-                      <p className="text-sm text-gray-500">{product.category}</p>
-                    )}
+                    <p className="text-sm text-gray-500">{product.category[lang]}</p>
                     <p className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                      ${product.price}
+                      Rp {product.price.toLocaleString()}
                     </p>
                   </div>
                 </motion.div>
