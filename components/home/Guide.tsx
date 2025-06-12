@@ -64,7 +64,7 @@ const Guide = ({ locale }: GuideProps) => {
             </motion.div>
           ))}
         </div>
-
+        {/* TODO View Complete Safety Guide
         <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ const Guide = ({ locale }: GuideProps) => {
               />
             </svg>
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

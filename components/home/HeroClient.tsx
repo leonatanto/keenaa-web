@@ -150,8 +150,8 @@ export default function HeroClient({ slides }: HeroClientProps) {
             key={index}
             onClick={() => handleSlideChange(index)}
             className={`h-2.5 rounded-full transition-all duration-500 ${currentSlide === index
-                ? "w-8 bg-white"
-                : "w-2.5 bg-white/50 hover:bg-white/70"
+              ? "w-8 bg-white"
+              : "w-2.5 bg-white/50 hover:bg-white/70"
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />

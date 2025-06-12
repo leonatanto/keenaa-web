@@ -51,7 +51,7 @@ const Header = () => {
   }, [lang]);
 
   const scrollLinks = [
-    { label: translations.Navigation.shop, href: "#Products" },
+    //TODO: { label: translations.Navigation.shop, href: "#Products" },
     { label: translations.Navigation.benefits, href: "#Benefits" },
     { label: translations.Navigation.guide, href: "#Guide" },
     { label: translations.Navigation.reviews, href: "#Reviews" },

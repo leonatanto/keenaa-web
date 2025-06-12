@@ -34,7 +34,7 @@ export default function BenefitCard({ benefit }: BenefitCardProps) {
             src={benefit.icon}
             alt={benefit.title}
             fill
-            className="object-contain p-4 relative z-10"
+            className="object-cover rounded-full p-4 relative z-10"
           />
         </div>
         <motion.h3
