@@ -153,5 +153,24 @@
     "guide": "PANDUAN",
     "reviews": "ULASAN",
     "catalog": "KATALOG"
+  },
+  "Catalog": {
+    "title": "Koleksi Kami",
+    "subtitle": "Temukan rangkaian lengkap gendongan bayi kami, dirancang untuk kenyamanan, keamanan, dan gaya. Setiap produk dibuat dengan cermat untuk memberikan pengalaman terbaik bagi orang tua dan anak.",
+    "searchPlaceholder": "Cari produk...",
+    "category": "Kategori",
+    "sortBy": "Urutkan berdasarkan",
+    "showing": "Menampilkan",
+    "products": "produk",
+    "product": "produk",
+    "noProducts": "Tidak ada produk ditemukan",
+    "clearFilters": "Hapus filter",
+    "sortOptions": {
+      "default": "Default",
+      "priceAsc": "Harga: Rendah ke Tinggi",
+      "priceDesc": "Harga: Tinggi ke Rendah",
+      "nameAsc": "Nama: A ke Z",
+      "nameDesc": "Nama: Z ke A"
+    }
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 import { catalogItems } from "@/config/catalog";
+import { getDictionary } from "@/lib/i18n";
 import { Button, Input, Pagination, Select, SelectItem } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
@@ -22,12 +23,42 @@ export default function CatalogPage({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("default");
+  const [translations, setTranslations] = useState({
+    title: "Our Collection",
+    subtitle: "Discover our complete range of baby carriers, designed for comfort, safety, and style. Each product is carefully crafted to provide the best experience for both parent and child.",
+    searchPlaceholder: "Search products...",
+    category: "Category",
+    sortBy: "Sort by",
+    showing: "Showing",
+    products: "products",
+    product: "product",
+    noProducts: "No products found",
+    clearFilters: "Clear filters",
+    sortOptions: {
+      default: "Default",
+      priceAsc: "Price: Low to High",
+      priceDesc: "Price: High to Low",
+      nameAsc: "Name: A to Z",
+      nameDesc: "Name: Z to A"
+    }
+  });
 
   useEffect(() => {
+    const loadTranslations = async () => {
+      try {
+        const dict = await getDictionary(lang);
+        if (dict.Catalog) {
+          setTranslations(dict.Catalog);
+        }
+      } catch (error) {
+        console.error('Error loading translations:', error);
+      }
+    };
+    loadTranslations();
     setMounted(true);
     // Scroll to top when component mounts
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [lang]);
 
   // Also scroll to top when page changes
   useEffect(() => {
@@ -101,7 +132,7 @@ export default function CatalogPage({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Our Collection
+            {translations.title}
           </motion.h1>
           <motion.p
             className="text-gray-600 dark:text-gray-400 max-w-2xl"
@@ -109,8 +140,7 @@ export default function CatalogPage({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Discover our complete range of baby carriers, designed for comfort, safety, and style.
-            Each product is carefully crafted to provide the best experience for both parent and child.
+            {translations.subtitle}
           </motion.p>
         </div>
 
@@ -122,14 +152,14 @@ export default function CatalogPage({
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Input
-            placeholder="Search products..."
+            placeholder={translations.searchPlaceholder}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             startContent={<Search className="text-gray-400" size={20} />}
             className="w-full"
           />
           <Select
-            label="Category"
+            label={translations.category}
             selectedKeys={[selectedCategory]}
             onChange={(e) => setSelectedCategory(e.target.value)}
             className="w-full"
@@ -141,16 +171,16 @@ export default function CatalogPage({
             ))}
           </Select>
           <Select
-            label="Sort by"
+            label={translations.sortBy}
             selectedKeys={[sortBy]}
             onChange={(e) => setSortBy(e.target.value)}
             className="w-full"
           >
-            <SelectItem key="default" value="default">Default</SelectItem>
-            <SelectItem key="price-asc" value="price-asc">Price: Low to High</SelectItem>
-            <SelectItem key="price-desc" value="price-desc">Price: High to Low</SelectItem>
-            <SelectItem key="name-asc" value="name-asc">Name: A to Z</SelectItem>
-            <SelectItem key="name-desc" value="name-desc">Name: Z to A</SelectItem>
+            <SelectItem key="default" value="default">{translations.sortOptions.default}</SelectItem>
+            <SelectItem key="price-asc" value="price-asc">{translations.sortOptions.priceAsc}</SelectItem>
+            <SelectItem key="price-desc" value="price-desc">{translations.sortOptions.priceDesc}</SelectItem>
+            <SelectItem key="name-asc" value="name-asc">{translations.sortOptions.nameAsc}</SelectItem>
+            <SelectItem key="name-desc" value="name-desc">{translations.sortOptions.nameDesc}</SelectItem>
           </Select>
         </motion.div>
 
@@ -161,10 +191,10 @@ export default function CatalogPage({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Showing {filteredItems.length} {filteredItems.length === 1 ? 'product' : 'products'}
+          {translations.showing} {filteredItems.length} {filteredItems.length === 1 ? translations.product : translations.products}
         </motion.div>
 
-        {/* Grid */}
+        {/* Product Grid */}
         <motion.div
           variants={containerAnimation}
           initial="hidden"
@@ -222,7 +252,7 @@ export default function CatalogPage({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-gray-500 text-lg mb-4">No products found</p>
+            <p className="text-gray-500 text-lg mb-4">{translations.noProducts}</p>
             <Button
               color="primary"
               variant="light"
@@ -232,13 +262,13 @@ export default function CatalogPage({
                 setSortBy("default");
               }}
             >
-              Clear filters
+              {translations.clearFilters}
             </Button>
           </motion.div>
         )}
 
         {/* Pagination */}
-        {filteredItems.length > 0 && (
+        {totalPages > 1 && (
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0 }}
