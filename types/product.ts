@@ -22,4 +22,9 @@ export interface ProductType {
   maxWeight: string;
   material: string;
   certification: string;
+  platforms?: {
+    shopee?: string;
+    tokopedia?: string;
+    tiktok?: string;
+  };
 } 

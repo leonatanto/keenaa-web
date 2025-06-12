@@ -1,11 +1,9 @@
 "use client";
 
 import { products } from "@/config/products";
-import { siteConfig } from "@/config/site";
 import { ProductType } from "@/types/product";
-import { Button } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, ExternalLink } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -275,15 +273,15 @@ export default function ProductDetailClient({ params: { lang, id }, dictionary }
                   <div className="flex-none pt-6">
                     {/* Platform links */}
                     {product.platforms && (
-                      <div className="flex gap-4 mb-6">
+                      <div className="flex items-center gap-12">
                         {product.platforms.shopee && (
                           <a
                             href={product.platforms.shopee}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                            className="text-orange-500 hover:text-orange-600 transition-colors transform hover:scale-110"
                           >
-                            <SiShopee className="w-6 h-6 text-orange-500" />
+                            <SiShopee className="w-12 h-12" />
                           </a>
                         )}
                         {product.platforms.tokopedia && (
@@ -291,13 +289,13 @@ export default function ProductDetailClient({ params: { lang, id }, dictionary }
                             href={product.platforms.tokopedia}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                            className="text-green-500 hover:text-green-600 transition-colors transform hover:scale-110"
                           >
                             <Image
                               src="/tokopedia-icon.svg"
                               alt="Tokopedia"
-                              width={24}
-                              height={24}
+                              width={48}
+                              height={48}
                               className="text-green-500"
                             />
                           </a>
@@ -307,26 +305,13 @@ export default function ProductDetailClient({ params: { lang, id }, dictionary }
                             href={product.platforms.tiktok}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                            className="text-black hover:text-gray-800 transition-colors transform hover:scale-110"
                           >
-                            <SiTiktok className="w-5 h-5" />
+                            <SiTiktok className="w-11 h-11" />
                           </a>
                         )}
                       </div>
                     )}
-
-                    <Button
-                      as="a"
-                      href={siteConfig.headerLinks.find(link => link.name === 'shopee')?.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      color="primary"
-                      size="lg"
-                      className="w-full font-medium text-base py-6 bg-primary hover:bg-primary-dark text-white shadow-sm"
-                      endContent={<ExternalLink className="w-4 h-4 ml-2" />}
-                    >
-                      {t.productDetail.buyOnShopee}
-                    </Button>
                   </div>
                 </motion.div>
               </div>

@@ -43,7 +43,11 @@ export const products: ProductType[] = [
     ageRange: "0-12 months",
     maxWeight: "12kg",
     material: "100% Cotton",
-    certification: "SNI Certified"
+    certification: "SNI Certified",
+    platforms: {
+      shopee: "https://shopee.co.id/keenaa.id/123",
+      tiktok: "https://tiktok.com/@keenaa.id/123"
+    }
   },
   {
     id: "toddler-carrier",
@@ -87,7 +91,10 @@ export const products: ProductType[] = [
     ageRange: "12-36 months",
     maxWeight: "20kg",
     material: "Premium Cotton Canvas",
-    certification: "SNI Certified"
+    certification: "SNI Certified",
+    platforms: {
+      shopee: "https://shopee.co.id/keenaa.id/456"
+    }
   },
   {
     id: "hip-carrier",
@@ -131,7 +138,11 @@ export const products: ProductType[] = [
     ageRange: "4-36 months",
     maxWeight: "20kg",
     material: "Premium Polyester",
-    certification: "SNI Certified"
+    certification: "SNI Certified",
+    platforms: {
+      shopee: "https://shopee.co.id/keenaa.id/789",
+      tiktok: "https://tiktok.com/@keenaa.id/789"
+    }
   },
   {
     id: "mesh-carrier",
@@ -175,6 +186,10 @@ export const products: ProductType[] = [
     ageRange: "0-48 months",
     maxWeight: "20kg",
     material: "Premium Mesh",
-    certification: "SNI Certified"
+    certification: "SNI Certified",
+    platforms: {
+      shopee: "https://shopee.co.id/keenaa.id/012",
+      tiktok: "https://tiktok.com/@keenaa.id/012"
+    }
   }
 ]; 
