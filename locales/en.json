@@ -171,6 +171,24 @@
       "priceDesc": "Price: High to Low",
       "nameAsc": "Name: A to Z",
       "nameDesc": "Name: Z to A"
+    },
+    "productDetail": {
+      "availableColors": "Available Colors",
+      "buyOnShopee": "Buy on Shopee",
+      "sections": {
+        "details": "Details",
+        "features": "Features",
+        "specifications": "Specifications"
+      },
+      "productNotFound": "Product not found",
+      "returnToCatalog": "Return to Catalog",
+      "breadcrumb": "Catalog",
+      "specs": {
+        "ageRange": "Age Range",
+        "maxWeight": "Maximum Weight",
+        "material": "Material",
+        "certification": "Certification"
+      }
     }
   }
 }

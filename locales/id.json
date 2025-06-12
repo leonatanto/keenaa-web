@@ -171,6 +171,24 @@
       "priceDesc": "Harga: Tinggi ke Rendah",
       "nameAsc": "Nama: A ke Z",
       "nameDesc": "Nama: Z ke A"
+    },
+    "productDetail": {
+      "availableColors": "Pilihan Warna",
+      "buyOnShopee": "Beli di Shopee",
+      "sections": {
+        "details": "Detail",
+        "features": "Fitur",
+        "specifications": "Spesifikasi"
+      },
+      "productNotFound": "Produk tidak ditemukan",
+      "returnToCatalog": "Kembali ke Katalog",
+      "breadcrumb": "Katalog",
+      "specs": {
+        "ageRange": "Rentang Usia",
+        "maxWeight": "Berat Maksimum",
+        "material": "Material",
+        "certification": "Sertifikasi"
+      }
     }
   }
 }
